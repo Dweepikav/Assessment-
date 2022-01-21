@@ -1,0 +1,71 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+
+<h1 style="text-align: center;">Patient Details</h1>
+<div id="custom-search-input">
+    <div class="form-group">
+        <label class="lab" for="Name">Search by Id</label><br>
+        <select style="width: 20%;" class="form-control uto" #name="ngModel" name="dropdown" [(ngModel)]="patientId">
+            <option value="" disabled selected>Search by id</option>
+            <option value={{patient.id}} selected *ngFor="let patient of patients" placeholder="Enter Name">
+                {{patient.id}}</option>
+        </select>
+        <span class="input-group-btn" >
+            <button class="btn btn-danger utt" type="button" (click)="findPatientById()">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+        <div class="status" id="status"></div>
+
+    </div>
+
+
+</div>
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="container" *ngIf="patients.length==0">
+    <h3>No Such Patient There in Database</h3>
+</div>
+
+<div class="container" *ngIf="patients.length>0">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Visited Doctor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let patient of patients">
+                    <td>{{patient.id}}</td>
+                    <td>{{patient.name|uppercase}}</td>
+                    <td>{{patient.visitedDoctor|uppercase}}</td>
+                    <td>
+                        <button class="btn btn-success btn-xs" (click)="showVisit(patient.id)">View Visits</button>
+                    </td>
+                    <td class="text-center"><button class="btn btn-secondary btn-xs" (click)="addVisit(patient.id)">Add
+                            Visit</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+
+<!-- Footer -->

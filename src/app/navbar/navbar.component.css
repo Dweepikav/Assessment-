@@ -1,0 +1,8 @@
+.GFG {
+    color: white;
+    font-size: 50px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+

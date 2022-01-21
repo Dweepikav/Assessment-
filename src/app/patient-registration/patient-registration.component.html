@@ -1,0 +1,73 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" id="">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+<h1 style="text-align: center;">Register Patient</h1>
+
+<div *ngIf="message==red">
+    <div style="text-align: center; color: red;">
+        <h1>Please Fill All The Fields</h1>
+    </div>
+    </div>
+    <div *ngIf="message==yellow">
+        <div style="text-align: center; color:red;">
+            <h1>Patient Id Exists</h1>
+        </div>
+    </div>
+    <div *ngIf="message==green">
+        <div style="text-align: center; color:green;">
+            <h1>Patient Saved Successfully</h1>
+        </div>
+    </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <fieldset>
+                    <legend class="text-center">Valid information is required to register. <span class="req"><small>
+                                required *</small></span></legend>
+
+                    <div class="form-group">
+                        <label for="doc_id"><span class="req">* </span> Patient Id : </label>
+                        <input #name="ngModel" required type="text" [(ngModel)]="patient.id" name="doc_id" id="doc_id"
+                            class="form-control phone" maxlength="28" placeholder="Enter Id" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name"><span class="req">* </span> Patient name : </label>
+                        <input #name="ngModel" required type="text" [(ngModel)]="patient.name" name="name" id="name"
+                            class="form-control phone" maxlength="28" placeholder="Enter Name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> Doctor Name : </label><br>
+                        <select class="form-control" #name="ngModel" name="dropdown" [(ngModel)]="patient.doctor.name">
+                            <option value={{docto.name}} selected *ngFor="let docto of doctors"
+                                class="form-control phone" maxlength="28" placeholder="Enter Name">
+                                {{docto.name|titlecase}}</option>
+                        </select>
+                        <div class="status" id="status"></div>
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Register"
+                            (click)="registerNow()">
+                    </div>
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+<br>
+<br><br><br><br><br><br><br><br><br>
+
+<!-- Footer -->

@@ -1,0 +1,63 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" id="">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    
+
+<div class="wholeBody">
+    <h1 style="text-align: center;">Doctor Details</h1>
+
+<div class="container" *ngIf="doctors.length==0">
+    <h3>No Data Exists</h3>
+</div>
+
+<div class="container" *ngIf="doctors.length>0">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Specialization</th>
+            <th>Patients Attended</th>
+        </tr>
+    </thead>
+    <tbody > 
+        <tr  *ngFor="let doctor of doctors | filter:searchName">
+            <td>{{doctor.id}}</td>
+            <td>{{doctor.name|uppercase}}</td>
+            <td>{{doctor.age}}</td>
+            <td>{{doctor.gender|uppercase}}</td>
+            <td>{{doctor.specialization|uppercase}}</td>
+            <td>{{doctor.patientsAttended}}</td>
+            
+          </tr>
+    </tbody>
+    </table>
+    </div>
+</div>
+
+</div>
+
+<div class="container-fluid flex-grow-1 ">
+    <div class="row py-5">
+        <div class="col-lg-12 text-white text-center">
+            <h1 class="display-3 ">Bootstrap footer</h1>
+            <p class="lead mb-0">This footer is created by using Bootstrap.</p>
+            <p class="lead py-3">Snippet by BBBootstrap.</p>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
